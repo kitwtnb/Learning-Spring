@@ -1,9 +1,11 @@
 package com.github.kitwtnb.learning_spring.usermanagementapp.login.controller
 
 import com.github.kitwtnb.learning_spring.usermanagementapp.login.model.SignupForm
+import com.github.kitwtnb.learning_spring.usermanagementapp.login.model.validator.ValidationGroupOrder
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.validation.BindingResult
+import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.ModelAttribute
 import org.springframework.web.bind.annotation.PostMapping
@@ -21,7 +23,7 @@ class SignupController {
 
     @PostMapping("/user_management_app/signup")
     fun postSignup(
-        @ModelAttribute form: SignupForm?,
+        @ModelAttribute @Validated(ValidationGroupOrder::class) form: SignupForm?,
         bindingResult: BindingResult,
         model: Model
     ): String {

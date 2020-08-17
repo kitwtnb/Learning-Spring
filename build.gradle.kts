@@ -31,6 +31,10 @@ dependencies {
 
     implementation("org.webjars:bootstrap:4.5.0")
     implementation("org.webjars:jquery:3.5.1")
+
+    implementation("javax.validation:validation-api:2.0.1.Final")
+    implementation("org.hibernate.validator:hibernate-validator:6.0.17.Final")
+    runtimeOnly("org.glassfish:javax.el:3.0.1-b11")
 }
 
 tasks.withType<Test> {
