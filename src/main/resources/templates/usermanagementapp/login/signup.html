@@ -14,13 +14,13 @@
             <h1>Signup</h1>
         </div>
 
-        <form method="post" th:action="@{/user_management_app/signup}">
+        <form method="post" th:action="@{/user_management_app/signup}" th:object="${signupForm}">
             <table class="table table-bordered table-hover">
                 <tr>
                     <th class="active col-sm-3">User ID</th>
                     <td>
                         <div class="form-group">
-                            <input type="text" class="form-control" />
+                            <input type="text" class="form-control" th:field="*{userId}" />
                         </div>
                     </td>
                 </tr>
@@ -29,7 +29,7 @@
                     <th class="active">Password</th>
                     <td>
                         <div class="form-group">
-                            <input type="text" class="form-control" />
+                            <input type="text" class="form-control" th:field="*{password}" />
                         </div>
                     </td>
                 </tr>
@@ -38,7 +38,7 @@
                     <th class="active">UserName</th>
                     <td>
                         <div class="form-group">
-                            <input type="text" class="form-control" />
+                            <input type="text" class="form-control" th:field="*{userName}" />
                         </div>
                     </td>
                 </tr>
@@ -47,7 +47,7 @@
                     <th class="active">Birthday</th>
                     <td>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="yyyy/MM/dd" />
+                            <input type="text" class="form-control" placeholder="yyyy/MM/dd" th:field="*{birthday}" />
                         </div>
                     </td>
                 </tr>
@@ -56,22 +56,28 @@
                     <th class="active">Age</th>
                     <td>
                         <div class="form-group">
-                            <input type="text" class="form-control" />
+                            <input type="text" class="form-control" th:field="*{age}" />
                         </div>
                     </td>
                 </tr>
 
                 <tr>
-                    <th class="active">Married</th>
+                    <th class="active">Marriage</th>
                     <td>
                         <div class="form-group">
                             <div th:each="item : ${marriage}">
-                                <input type="radio" name="marriage" th:text="${item.key}" th:value="${item.value}" />
+                                <input type="radio" name="marriage" th:text="${item.key}" th:value="${item.value}" th:field="*{marriage}" />
                             </div>
                         </div>
                     </td>
                 </tr>
             </table>
+
+            <ul>
+                <li th:each="error : ${#fields.detailedErrors()}">
+                    <span th:text="${error.message}">Error Message</span>
+                </li>
+            </ul>
 
             <button class="btn btn-primary" type="submit">Register</button>
         </form>
