@@ -28,6 +28,9 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
     }
+
+    implementation("org.webjars:bootstrap:4.5.0")
+    implementation("org.webjars:jquery:3.5.1")
 }
 
 tasks.withType<Test> {
