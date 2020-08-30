@@ -29,6 +29,9 @@ dependencies {
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
     }
 
+    implementation("org.springframework:spring-aop:5.2.8.RELEASE")
+    implementation("org.aspectj:aspectjweaver:1.9.6")
+
     implementation("org.webjars:bootstrap:4.5.0")
     implementation("org.webjars:jquery:3.5.1")
 
